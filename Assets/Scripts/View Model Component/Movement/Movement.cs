@@ -9,7 +9,7 @@ public abstract class Movement : MonoBehaviour {
 
   protected virtual void Awake () {
     unit = GetComponent<Unit> ();
-    jumper = transform.FindChild ("Jumper");
+    jumper = transform.Find ("Jumper");
   }
 
   public virtual List<Tile> GetTilesInRange (Board board) {

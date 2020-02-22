@@ -12,8 +12,9 @@ public class InitBattleState : BattleState {
     SelectTile (p);
     SpawnTestUnits (); // This is new
     yield return null;
-    owner.ChangeState<SelectUnitState> (); // This is changed
+    owner.ChangeState<CutSceneState>();
   }
+  
   void SpawnTestUnits () {
     System.Type[] components = new System.Type[] { typeof (WalkMovement), typeof (FlyMovement), typeof (TeleportMovement) };
     for (int i = 0; i < 3; ++i) {

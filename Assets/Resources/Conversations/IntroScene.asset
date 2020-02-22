@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e954c39960bd8df46a63e6271388c601, type: 3}
+  m_Name: IntroScene
+  m_EditorClassIdentifier: 
+  list:
+  - messages:
+    - Look at me!
+    - I am afraid!
+    - ... Of hauntings!
+    speaker: {fileID: 21300000, guid: d1cf0bcdd43f047a39bff49a0a5903fe, type: 3}
+    anchor: 2
+  - messages:
+    - '*fart*'
+    - H-h-haunted!
+    speaker: {fileID: 21300000, guid: c4e294006940f5440bb1ede041cf3cbe, type: 3}
+    anchor: 6
+  - messages:
+    - What a smell!
+    speaker: {fileID: 21300000, guid: d1cf0bcdd43f047a39bff49a0a5903fe, type: 3}
+    anchor: 2
