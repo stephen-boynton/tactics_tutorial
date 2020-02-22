@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 public abstract class BattleState : State {
   protected BattleController owner;
@@ -7,6 +8,10 @@ public abstract class BattleState : State {
   public LevelData levelData { get { return owner.levelData; } }
   public Transform tileSelectionIndicator { get { return owner.tileSelectionIndicator; } }
   public Point pos { get { return owner.pos; } set { owner.pos = value; } }
+	public AbilityMenuPanelController abilityMenuPanelController { get { return owner.abilityMenuPanelController; } }
+	public Turn turn { get { return owner.turn; } }
+	public List<Unit> units { get { return owner.units; } }
+
   protected virtual void Awake () {
     owner = GetComponent<BattleController> ();
   }

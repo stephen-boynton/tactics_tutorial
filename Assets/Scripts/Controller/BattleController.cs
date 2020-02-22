@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 public class BattleController : StateMachine {
   public CameraRig cameraRig;
@@ -9,6 +10,10 @@ public class BattleController : StateMachine {
   public Unit currentUnit;
   public Tile currentTile { get { return board.GetTile (pos); } }
   public Point pos;
+	public AbilityMenuPanelController abilityMenuPanelController;
+	public Turn turn = new Turn();
+	public List<Unit> units = new List<Unit>();
+
   void Start () {
     ChangeState<InitBattleState> ();
   }

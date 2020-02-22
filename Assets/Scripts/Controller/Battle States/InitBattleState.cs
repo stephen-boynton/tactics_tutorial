@@ -26,6 +26,7 @@ public class InitBattleState : BattleState {
       Movement m = instance.AddComponent (components[i]) as Movement;
       m.range = 5;
       m.jumpHeight = 1;
+      units.Add(unit);
     }
   }
 }
