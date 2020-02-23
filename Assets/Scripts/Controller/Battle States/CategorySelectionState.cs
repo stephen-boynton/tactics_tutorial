@@ -1,8 +1,21 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+
 public class CategorySelectionState : BaseAbilityMenuState
 {
+    public override void Enter()
+    {
+        base.Enter();
+        statPanelController.ShowPrimary(turn.actor.gameObject);
+    }
+
+    public override void Exit()
+    {
+        base.Exit();
+        statPanelController.HidePrimary();
+    }
+
     protected override void LoadMenu()
     {
         if (menuOptions == null)
@@ -16,6 +29,7 @@ public class CategorySelectionState : BaseAbilityMenuState
 
         abilityMenuPanelController.Show(menuTitle, menuOptions);
     }
+
     protected override void Confirm()
     {
         switch (abilityMenuPanelController.selection)
@@ -36,6 +50,7 @@ public class CategorySelectionState : BaseAbilityMenuState
     {
         owner.ChangeState<CommandSelectionState>();
     }
+
     void Attack()
     {
         turn.hasUnitActed = true;
@@ -43,6 +58,7 @@ public class CategorySelectionState : BaseAbilityMenuState
             turn.lockMove = true;
         owner.ChangeState<CommandSelectionState>();
     }
+
     void SetCategory(int index)
     {
         ActionSelectionState.category = index;

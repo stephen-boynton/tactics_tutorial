@@ -1,15 +1,30 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+
 public class ActionSelectionState : BaseAbilityMenuState
 {
     public static int category;
     string[] whiteMagicOptions = new string[] { "Cure", "Raise", "Holy" };
     string[] blackMagicOptions = new string[] { "Fire", "Ice", "Lightning" };
+
+    public override void Enter()
+    {
+        base.Enter();
+        statPanelController.ShowPrimary(turn.actor.gameObject);
+    }
+
+    public override void Exit()
+    {
+        base.Exit();
+        statPanelController.HidePrimary();
+    }
+
     protected override void LoadMenu()
     {
         if (menuOptions == null)
             menuOptions = new List<string>(3);
+
         if (category == 0)
         {
             menuTitle = "White Magic";
@@ -20,8 +35,10 @@ public class ActionSelectionState : BaseAbilityMenuState
             menuTitle = "Black Magic";
             SetOptions(blackMagicOptions);
         }
+
         abilityMenuPanelController.Show(menuTitle, menuOptions);
     }
+
     protected override void Confirm()
     {
         turn.hasUnitActed = true;
@@ -29,10 +46,12 @@ public class ActionSelectionState : BaseAbilityMenuState
             turn.lockMove = true;
         owner.ChangeState<CommandSelectionState>();
     }
+
     protected override void Cancel()
     {
         owner.ChangeState<CategorySelectionState>();
     }
+
     void SetOptions(string[] options)
     {
         menuOptions.Clear();

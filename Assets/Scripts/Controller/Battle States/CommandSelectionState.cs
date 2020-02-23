@@ -1,8 +1,21 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+
 public class CommandSelectionState : BaseAbilityMenuState
 {
+    public override void Enter()
+    {
+        base.Enter();
+        statPanelController.ShowPrimary(turn.actor.gameObject);
+    }
+
+    public override void Exit()
+    {
+        base.Exit();
+        statPanelController.HidePrimary();
+    }
+
     protected override void LoadMenu()
     {
         if (menuOptions == null)
@@ -13,6 +26,7 @@ public class CommandSelectionState : BaseAbilityMenuState
             menuOptions.Add("Action");
             menuOptions.Add("Wait");
         }
+
         abilityMenuPanelController.Show(menuTitle, menuOptions);
         abilityMenuPanelController.SetLocked(0, turn.hasUnitMoved);
         abilityMenuPanelController.SetLocked(1, turn.hasUnitActed);
