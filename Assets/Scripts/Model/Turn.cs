@@ -9,6 +9,8 @@ public class Turn
     public bool lockMove;
     Tile startTile;
     Directions startDir;
+    public GameObject ability;
+    public List<Tile> targets;
     public void Change(Unit current)
     {
         actor = current;
