@@ -415,16 +415,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61357e03e7fe14b46a2eb583b90be250, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  heroPrefab: {fileID: 9039264735484311633}
   cameraRig: {fileID: 1611118935}
   board: {fileID: 1112392829}
   levelData: {fileID: 11400000, guid: 4308e1c28dc2d4e3ab0f6522c2b374e1, type: 2}
   tileSelectionIndicator: {fileID: 1272826066}
-  heroPrefab: {fileID: 9039264735484311633}
-  currentUnit: {fileID: 0}
   pos:
     x: 0
     y: 0
   abilityMenuPanelController: {fileID: 1892282639}
+  statPanelController: {fileID: 1593378537}
   units: []
 --- !u!4 &340710152
 Transform:
@@ -1366,8 +1366,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e16b5c5a30b01f04293263c7b7902777, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  primaryPanel: {fileID: 0}
-  secondaryPanel: {fileID: 0}
+  primaryPanel: {fileID: 139111212}
+  secondaryPanel: {fileID: 2053238851}
 --- !u!1 &1611118934
 GameObject:
   m_ObjectHideFlags: 0
@@ -1999,6 +1999,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3914949325101484085, guid: a9b5b038b4fe64ddcb62417d4c9325be,
+        type: 3}
+      propertyPath: vertical
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7704089964996965607, guid: a9b5b038b4fe64ddcb62417d4c9325be,
         type: 3}

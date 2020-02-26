@@ -1,61 +1,61 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-public class ActionSelectionState : BaseAbilityMenuState
+public class ActionSelectionState : BaseAbilityMenuState 
 {
-    public static int category;
-    string[] whiteMagicOptions = new string[] { "Cure", "Raise", "Holy" };
-    string[] blackMagicOptions = new string[] { "Fire", "Ice", "Lightning" };
+	public static int category;
+	string[] whiteMagicOptions = new string[] { "Cure", "Raise", "Holy" };
+	string[] blackMagicOptions = new string[] { "Fire", "Ice", "Lightning" };
 
-    public override void Enter()
-    {
-        base.Enter();
-        statPanelController.ShowPrimary(turn.actor.gameObject);
-    }
+	public override void Enter ()
+	{
+		base.Enter ();
+		statPanelController.ShowPrimary(turn.actor.gameObject);
+	}
+	
+	public override void Exit ()
+	{
+		base.Exit ();
+		statPanelController.HidePrimary();
+	}
 
-    public override void Exit()
-    {
-        base.Exit();
-        statPanelController.HidePrimary();
-    }
+	protected override void LoadMenu ()
+	{
+		if (menuOptions == null)
+			menuOptions = new List<string>(3);
 
-    protected override void LoadMenu()
-    {
-        if (menuOptions == null)
-            menuOptions = new List<string>(3);
+		if (category == 0)
+		{
+			menuTitle = "White Magic";
+			SetOptions(whiteMagicOptions);
+		}
+		else
+		{
+			menuTitle = "Black Magic";
+			SetOptions(blackMagicOptions);
+		}
 
-        if (category == 0)
-        {
-            menuTitle = "White Magic";
-            SetOptions(whiteMagicOptions);
-        }
-        else
-        {
-            menuTitle = "Black Magic";
-            SetOptions(blackMagicOptions);
-        }
+		abilityMenuPanelController.Show(menuTitle, menuOptions);
+	}
 
-        abilityMenuPanelController.Show(menuTitle, menuOptions);
-    }
+	protected override void Confirm ()
+	{
+		turn.hasUnitActed = true;
+		if (turn.hasUnitMoved)
+			turn.lockMove = true;
+		owner.ChangeState<CommandSelectionState>();
+	}
 
-    protected override void Confirm()
-    {
-        turn.hasUnitActed = true;
-        if (turn.hasUnitMoved)
-            turn.lockMove = true;
-        owner.ChangeState<CommandSelectionState>();
-    }
+	protected override void Cancel ()
+	{
+		owner.ChangeState<CategorySelectionState>();
+	}
 
-    protected override void Cancel()
-    {
-        owner.ChangeState<CategorySelectionState>();
-    }
-
-    void SetOptions(string[] options)
-    {
-        menuOptions.Clear();
-        for (int i = 0; i < options.Length; ++i)
-            menuOptions.Add(options[i]);
-    }
+	void SetOptions (string[] options)
+	{
+		menuOptions.Clear();
+		for (int i = 0; i < options.Length; ++i)
+			menuOptions.Add(options[i]);
+	}
 }

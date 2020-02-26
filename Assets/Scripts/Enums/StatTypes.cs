@@ -1,12 +1,11 @@
-using UnityEngine;
 using System.Collections;
-public enum StatTypes
-{
+using UnityEngine;
+public enum StatTypes {
     LVL, // Level
     EXP, // Experience
-    HP,  // Hit Points
+    HP, // Hit Points
     MHP, // Max Hit Points
-    MP,  // Magic Points
+    MP, // Magic Points
     MMP, // Max Magic Points
     ATK, // Physical Attack
     DEF, // Physical Defense
@@ -17,5 +16,6 @@ public enum StatTypes
     SPD, // Speed
     MOV, // Move Range
     JMP, // Jump Height
+    CTR, // Counter - for turn order
     Count
 }
