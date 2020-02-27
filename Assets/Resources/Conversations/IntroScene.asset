@@ -14,17 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   list:
   - messages:
-    - Look at me!
-    - I am afraid!
-    - ... Of hauntings!
+    - Fight!
     speaker: {fileID: 21300000, guid: d1cf0bcdd43f047a39bff49a0a5903fe, type: 3}
-    anchor: 2
-  - messages:
-    - '*fart*'
-    - H-h-haunted!
-    speaker: {fileID: 21300000, guid: c4e294006940f5440bb1ede041cf3cbe, type: 3}
-    anchor: 6
-  - messages:
-    - What a smell!
-    speaker: {fileID: 21300000, guid: d1cf0bcdd43f047a39bff49a0a5903fe, type: 3}
-    anchor: 2
+    anchor: 0

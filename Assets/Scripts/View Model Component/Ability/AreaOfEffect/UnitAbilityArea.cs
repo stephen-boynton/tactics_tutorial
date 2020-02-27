@@ -10,6 +10,7 @@ public class UnitAbilityArea : AbilityArea
 		Tile tile = board.GetTile(pos);
 		if (tile != null)
 			retValue.Add(tile);
+
 		return retValue;
 	}
 }

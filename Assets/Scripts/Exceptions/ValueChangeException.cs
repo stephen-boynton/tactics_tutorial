@@ -25,13 +25,12 @@ public class ValueChangeException : BaseException
     }
     public float GetModifiedValue()
     {
-        float value = toValue;
         if (modifiers == null)
-            return value;
-
+            return toValue;
+        float value = toValue;
         modifiers.Sort(Compare);
         for (int i = 0; i < modifiers.Count; ++i)
-            value = modifiers[i].Modify(value);
+            value = modifiers[i].Modify(fromValue, value);
 
         return value;
     }

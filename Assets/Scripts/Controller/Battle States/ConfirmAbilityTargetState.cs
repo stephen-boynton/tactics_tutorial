@@ -32,15 +32,21 @@ public class ConfirmAbilityTargetState : BattleState {
 	}
 
 	protected override void OnFire (object sender, InfoEventArgs<int> e) {
+		Debug.Log("On fire called");
 		if (e.info == 0) {
+			Debug.Log("E.info i === 0");
+			Debug.Log(turn.targets.Count);
 			if (turn.targets.Count > 0) {
+				Debug.Log("I am attacking");
 				owner.ChangeState<PerformAbilityState> ();
 			}
 		} else
+			Debug.Log("What the fuck is going on?");
 			owner.ChangeState<AbilityTargetState> ();
 	}
 
 	void FindTargets () {
+		Debug.Log("I'm finding some fucking targets.");
 		turn.targets = new List<Tile> ();
 		AbilityEffectTarget[] targeters = turn.ability.GetComponentsInChildren<AbilityEffectTarget> ();
 		for (int i = 0; i < tiles.Count; ++i)
